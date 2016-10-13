@@ -11,7 +11,7 @@ Grafico_linhas::Grafico_linhas(const std::vector<Servidor>& servidores,
                                GLfloat tamanho_x, GLfloat tamanho_y)
     : Grafico(servidores, tamanho_x, tamanho_y),
       borda_x_{tamanho_x/10 * 2.0f},
-      borda_y_{tamanho_y/10 * 1.0f} {}
+      borda_y_{tamanho_y/10 * 1.0f}{}
 
 
 void Grafico_linhas::desenha()
@@ -21,9 +21,11 @@ void Grafico_linhas::desenha()
     std::tie(espaco_x, tamanho_barras) = calcular_dimensoes_x();
 
     GLfloat pos_x = espaco_x;
-    GLfloat comeco_x = espaco_x + tamanho_barras/3;
 
-    desenha_linhas(comeco_x, tamanho_barras, espaco_x);//, servidor
+
+    desenha_linhas(pos_x, tamanho_barras, espaco_x);
+
+    ///faz os nomes aparecerem embaixo do grafico na ordem correta
     for (Servidor servidor : servidores()) {
         auto fonte = servidores().size() < 6 ? GLUT_BITMAP_HELVETICA_12 : GLUT_BITMAP_HELVETICA_10;
         print_string(fonte, pos_x, -0.4f, servidor.nome().c_str());
@@ -98,34 +100,37 @@ std::pair<GLfloat, GLfloat> Grafico_linhas::calcular_dimensoes_x()
     return {espaco_x, tamanho_barras};
 }
 
-void Grafico_linhas::desenha_linhas(GLfloat pos_x, GLfloat tamanho_barras, GLfloat espaco_x)
+void Grafico_linhas::desenha_linhas(GLfloat pos_x, GLfloat tamanho_barras, GLfloat espaco_x)//,const Servidor& servidor
 {
 
-    const auto max_x = tamanho_x() + borda_x_/3;
-    const auto max_y = tamanho_y() + borda_y_/3;
 
     auto x = pos_x;
+    int numServidores = 0;
+    float vetX[200];//aliança
+    float vetY[200];//horda
 
-
+    ///desenha a linha do grafico da horda
     glColor3fv(Grafico::cor_horda);
     glBegin(GL_LINE_STRIP);
-    for (auto& servidor : servidores()) {
-        glVertex2f(x, servidor.porcentagem_horda() * tamanho_y());
-        x += espaco_x + tamanho_barras;
-    }
-	glEnd();
+        for (Servidor servidor : servidores()) {
+            glVertex2f(x, servidor.porcentagem_horda() * tamanho_y());
+                x += espaco_x + tamanho_barras;
+        }
+    glEnd();
 
-	x = pos_x;
+    x = pos_x;
 
-	glColor3fv(Grafico::cor_alianca);
+    ///desenha a linha do grafico da alliança
+    glColor3fv(Grafico::cor_alianca);
     glBegin(GL_LINE_STRIP);
-    for (auto& servidor : servidores()) {
-        glVertex2f(x, servidor.porcentagem_alianca() * tamanho_y());
-        x += espaco_x + tamanho_barras;
-    }
-	glEnd();
+        for (Servidor servidor : servidores()) {
+            glVertex2f(x, servidor.porcentagem_alianca()* tamanho_y());
+            x += espaco_x + tamanho_barras;
+        }
+    glEnd();
 
     glColor3f(0.0f, 0.0f, 0.0f);
+
 
 }
 
