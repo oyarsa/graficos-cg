@@ -30,7 +30,7 @@ private:
 
     std::pair<GLfloat, GLfloat> calcular_dimensoes_x();
 
-    void desenha_linhas(GLfloat pos_x, GLfloat tamanho_barras, GLfloat espaco_x);//,const Servidor& servidor
+    void desenha_linhas(GLfloat pos_x, GLfloat tamanho_barras, GLfloat espaco_x);
 
     void desenha_legenda();
 

@@ -100,19 +100,14 @@ std::pair<GLfloat, GLfloat> Grafico_linhas::calcular_dimensoes_x()
     return {espaco_x, tamanho_barras};
 }
 
-void Grafico_linhas::desenha_linhas(GLfloat pos_x, GLfloat tamanho_barras, GLfloat espaco_x)//,const Servidor& servidor
+void Grafico_linhas::desenha_linhas(GLfloat pos_x, GLfloat tamanho_barras, GLfloat espaco_x)
 {
-
-
     auto x = pos_x;
-    int numServidores = 0;
-    float vetX[200];//aliança
-    float vetY[200];//horda
 
     ///desenha a linha do grafico da horda
     glColor3fv(Grafico::cor_horda);
     glBegin(GL_LINE_STRIP);
-        for (Servidor servidor : servidores()) {
+        for (const Servidor& servidor : servidores()) {
             glVertex2f(x, servidor.porcentagem_horda() * tamanho_y());
                 x += espaco_x + tamanho_barras;
         }
@@ -123,15 +118,13 @@ void Grafico_linhas::desenha_linhas(GLfloat pos_x, GLfloat tamanho_barras, GLflo
     ///desenha a linha do grafico da alliança
     glColor3fv(Grafico::cor_alianca);
     glBegin(GL_LINE_STRIP);
-        for (Servidor servidor : servidores()) {
+        for (const Servidor& servidor : servidores()) {
             glVertex2f(x, servidor.porcentagem_alianca()* tamanho_y());
             x += espaco_x + tamanho_barras;
         }
     glEnd();
 
     glColor3f(0.0f, 0.0f, 0.0f);
-
-
 }
 
 void Grafico_linhas::desenha_legenda()
