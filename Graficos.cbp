@@ -58,6 +58,7 @@
 		<Unit filename="include/grafico.h" />
 		<Unit filename="include/grafico_barras.h" />
 		<Unit filename="include/grafico_linhas.h" />
+		<Unit filename="include/grafico_pizza.h" />
 		<Unit filename="include/parse_entrada.h" />
 		<Unit filename="include/servidor.h" />
 		<Unit filename="include/util.h" />
@@ -66,6 +67,7 @@
 		<Unit filename="src/grafico.cpp" />
 		<Unit filename="src/grafico_barras.cpp" />
 		<Unit filename="src/grafico_linhas.cpp" />
+		<Unit filename="src/grafico_pizza.cpp" />
 		<Unit filename="src/parse_entrada.cpp" />
 		<Unit filename="src/servidor.cpp" />
 		<Unit filename="src/util.cpp" />
