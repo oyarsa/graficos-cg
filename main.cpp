@@ -16,7 +16,9 @@
 #include <grafico.h>
 #include <grafico_barras.h>
 #include <grafico_linhas.h>
+#include <grafico_pizza.h>
 #include <util.h>
+#include <ctime>
 
 #ifdef _WIN32
 const std::string caminho_padrao = "data\\data_us.json";
@@ -106,8 +108,10 @@ void teclado(unsigned char key, int x, int y)
             grafico.reset(new Grafico_linhas(servidores, 20, 20));
             break;
         case '3':
-            std::cout << "lets\n";
+            grafico.reset(new Grafico_pizza(servidores, 10, 20, 20));
             break;
+        case 27:
+            exit(0);
     }
     desenha();
 }
@@ -139,6 +143,7 @@ std::vector<Servidor> filtrar_servidores(
 
 int main(int argc, char *argv[])
 {
+    srand(time(0));
     std::string caminho;
 
     if (argc == 2) {
