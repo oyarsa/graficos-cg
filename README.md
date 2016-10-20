@@ -4,7 +4,7 @@ Dados de entrada: população das facções em servidores de World of Warcraft
 
 Fonte de dados: https://realmpop.com/
 
-Gráficos implementados: barras, pizza e estrela
+Gráficos implementados: barras, pizza e linhas
 
 ##Estrutura do projeto:
 -lib/ : pasta das bibliotecas
