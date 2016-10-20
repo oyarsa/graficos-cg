@@ -10,6 +10,7 @@ Gráficos implementados: barras, pizza e estrela
 -lib/ : pasta das bibliotecas
 
     -json/ : biblioteca JsonCpp, utilizada para ler o Json de entrada
+    -jsoncpp.cpp/ : arquivo de implementação da biblioteca
 
 -src/ : arquivos de implementação
 
@@ -17,6 +18,8 @@ Gráficos implementados: barras, pizza e estrela
     -servidor.cpp: métodos da classe Servidor
     -grafico.cpp: métodos da classe abstrata Grafico
     -grafico_barras.cpp: métodos concretos da classe Grafico_barras
+    -grafico_linhas.cpp: métodos concretos da classe Grafico_linhas
+    -grafico_pizza.cpp: métodos concretos da classe Grafico_pizza
     -util.cpp: funções de utilidade
 
 -include/ : arquivos de cabeçalho
@@ -24,8 +27,10 @@ Gráficos implementados: barras, pizza e estrela
     -parse_entrada.h: expõe a função carregar_servidores
     -servidor.h: define a classe Servidor
     -grafico.h: define a classe abstrata Grafico
-    -grafico_barras: define a classe concreta Grafico_barras, filha de Grafico
-    -util.h: define funções de utilidade 
+    -grafico_barras.h: define a classe concreta Grafico_barras
+    -grafico_linhas.h: define a classe concreta Grafico_linhas
+    -grafico_pizza.h: define a classe concreta Grafico_linhas
+    -util.h: define funções de utilidade
 
 -data/ : arquivos de entrada
 
