@@ -127,7 +127,6 @@ void run_opengl()
 	glutKeyboardFunc(teclado);
 	inicializa();
 	glutMainLoop();
-
 }
 
 template<typename Pred>

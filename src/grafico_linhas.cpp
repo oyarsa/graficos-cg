@@ -33,6 +33,8 @@ void Grafico_linhas::desenha()
     }
 
     desenha_eixos();
+    print_string(GLUT_BITMAP_HELVETICA_18, tamanho_x() / 5, -(2*borda_y_/3),
+                 "Porcentagem das faccoes por servidor");
     desenha_legenda();
 }
 

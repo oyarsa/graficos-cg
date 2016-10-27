@@ -71,6 +71,13 @@ void Grafico_pizza::desenha() {
     const auto& servidor = servidores()[idx_servidor];
     glClear(GL_COLOR_BUFFER_BIT);
     desenha_circulo(servidor, 0.0f ,0.0f , raio_);
+
+    glColor3f(0.0f, 0.0f, 0.0f);
+    print_string(GLUT_BITMAP_TIMES_ROMAN_24, -tamanho_x() / 2.0f, -(3.0f*tamanho_y()/4.0f),
+                 "Porcentagem das faccoes por servidor");
+
+    print_string(GLUT_BITMAP_9_BY_15, tamanho_x()/10.0f, -0.975f*tamanho_y(),
+                 "Pressione 3 para trocar de servidor");
     desenha_legenda();
     glFlush();
 }

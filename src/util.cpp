@@ -1,5 +1,4 @@
 #include "util.h"
-#include <cstring>
 #include <GL/glut.h>
 
 void print_string(void* font, GLfloat x, GLfloat y, const char* s)
